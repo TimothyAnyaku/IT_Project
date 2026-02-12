@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register | Moderna</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/auth.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="logo"><h1>M</h1><h3>Moderna</h3></div>
+      <nav class="navigation">
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="products.html">Shop</a></li>
+          <li><a href="wishlist.html">Wishlist</a></li>
+          <li><a href="checkout.html">Cart</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="auth.html" class="login">Login</a></li>
+          <li><button id="dark-mode-toggle"><i class="fa-solid fa-moon"></i></button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  <main class="auth-container">
+    <div class="auth-box">
+      <h2>Create Account</h2>
+      <form id="register-form">
+        <input type="text" id="name" placeholder="Full Name" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <input type="password" id="confirm-password" placeholder="Confirm Password" required>
+        <button type="submit">Register</button>
+      </form>
+      <p class="alt-text">Already have an account? <a href="auth.html">Login</a></p>
+    </div>
+  </main>
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>MODERNA</h3>
+        <p>Premium clothing for the modern wardrobe. Quality, style, and comfort.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Shop</h3>
+        <ul>
+          <li><a href="products.html">All Products</a></li>
+          <li><a href="products.html">New Arrivals</a></li>
+          <li><a href="products.html">Sales</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Customer Service</h3>
+        <ul>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="products.html">Shipping & Returns</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Follow Us</h4>
+        <div class="social-media">
+          <a href="#">
+          <i class="fa-brands fa-facebook"></i>
+          </a>
+          <a href="#">
+          <i class="fa-brands fa-twitter"></i>
+          </a>
+          <a href="#">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+    </div> 
+  </footer>
+  <script src="js/main.js"></script>
+  <script src="js/register.js"></script>
+</body>
+</html>

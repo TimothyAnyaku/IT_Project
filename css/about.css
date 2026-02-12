@@ -1,0 +1,14 @@
+.about-text {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:2rem;
+  align-items:center;
+  max-width:1200px;
+  margin:0 auto;
+  padding:100px 20px;
+}
+.about img { border-radius:8px; object-fit:cover; width:100%; }
+.about-intro h3 { font-size:18px; color:#056d6d; margin-bottom:10px; }
+.about-intro h4 { font-size:15px; color:#333; }
+.about-intro p { font-size:14px; color:#444; margin-bottom:10px; }
+.outro { text-align:center; color:#555; padding-bottom:40px; }
