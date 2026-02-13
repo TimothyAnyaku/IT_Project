@@ -1,0 +1,118 @@
+/* ============================
+   CHECKOUT PAGE STYLING
+   ============================ */
+
+.checkout-section {
+  padding-top: calc(60px + 80px);
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.checkout-section h2 {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.cart-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 15px;
+  padding: 10px 15px;
+  border-bottom: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+}
+
+.cart-item img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.cart-info h4 {
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
+.cart-info p {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.clear-cart {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.clear-cart:hover {
+  background-color: #333;
+}
+
+/* DARK MODE SUPPORT */
+body.dark .cart-item {
+  background-color: #1e1e1e;
+  border-color: #444;
+}
+
+body.dark .clear-cart {
+  background-color: #1ec7c7;
+  color: black;
+}
+
+body.dark .clear-cart:hover {
+  background-color: #17a5a5;
+}
+
+/* RESPONSIVE */
+/* Tablet view (600‑899 px) */
+@media (max-width: 899px) {
+  .cart-item img { width: 100px; height: 100px; }
+  .cart-info h4 { font-size: 15px; }
+  .checkout-section { width: 90%; }
+}
+/* Mobile view (≤ 599 px) */
+@media (max-width: 599px) {
+  .cart-item {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+  .cart-item img { width: 120px; height: 120px; }
+  .cart-info h4 { font-size: 15px; }
+  .cart-info p { font-size: 13px; }
+  .clear-cart { width: 100%; }
+}
+
+/* @media (max-width: 600px) {
+  .cart-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .cart-item img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .clear-cart {
+    width: 100%;
+  }
+} */

@@ -9,6 +9,7 @@ main section {
 .contact-intro { text-align:center; }
 .contact-intro p { padding:20px 0 40px; font-size:15px; }
 
+/* Info Grid */
 .contact-info {
   display: grid;
   grid-template-columns: repeat(3,1fr);
@@ -20,6 +21,7 @@ main section {
 .contact-info h5 { font-size:14px; }
 .contact-info p { font-size:13px; }
 
+/* Form */
 form {
   text-align:left;
   width:40%;
@@ -46,3 +48,14 @@ input[type=submit] {
   border-radius:4px;
 }
 input[type=submit]:hover{background:#333;}
+
+/* Tablet view (600‑899 px) */
+@media (max-width: 899px) {
+  form { width: 70%; }
+}
+/* Mobile view (≤ 599 px) */
+@media (max-width: 599px) {
+  .contact-info { grid-template-columns: 1fr; gap: 15px; }
+  form { width: 90%; }
+  .contact-intro h3 { font-size: 24px; }
+}

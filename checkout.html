@@ -13,24 +13,29 @@
 
 <body>
   <header>
-    <div class="wrap">
-      <div class="logo"><h1>M</h1><h3>Moderna</h3></div>
-      <nav class="navigation">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="products.html">Shop</a></li>
-          <li><a href="wishlist.html">Wishlist</a></li>
-          <li><a href="checkout.html" class="active">Cart</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="auth.html" class="login">Login</a></li>
-          <li><button id="dark-mode-toggle"><i class="fa-solid fa-moon"></i></button></li>
-        </ul>
-      </nav>
+  <div class="wrap">
+    <div class="logo"><h1>M</h1><h3>Moderna</h3></div>
+    <!-- MENU ICON (mobile) -->
+    <div class="menu-toggle" id="menu-toggle">
+      <i class="fa-solid fa-bars"></i>
     </div>
-  </header>
 
-  <main>
+    <nav class="navigation" id="nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Shop</a></li>
+        <li><a href="wishlist.html">Wishlist</a></li>
+        <li><a href="checkout.html">Cart</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="auth.html" class="login">Login</a></li>
+        <li><button id="dark-mode-toggle"><i class="fa-solid fa-moon"></i></button></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+  <main class="background">
     <section class="checkout-section">
       <h2>Your Cart</h2>
       <div id="cart-list" class="cart-list"></div>

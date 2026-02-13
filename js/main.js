@@ -2,7 +2,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   /* ==============================
-     DARK MODE TOGGLE
+    DARK MODE TOGGLE
      ============================== */
   const toggle = document.getElementById("dark-mode-toggle");
   if (toggle) {
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* ==============================
-     USER LOGIN STATE
+    USER LOGIN STATE
      ============================== */
   const userEmail = localStorage.getItem("user");
   const loginLink = document.querySelector(".login");
@@ -38,3 +38,16 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+/* ==============================
+   MOBILE NAV TOGGLE
+   ============================== */
+const menuToggle = document.getElementById("menu-toggle");
+const nav = document.getElementById("nav");
+
+if (menuToggle && nav) {
+  menuToggle.addEventListener("click", () => {
+    nav.querySelector("ul").classList.toggle("open");
+    menuToggle.querySelector("i").classList.toggle("fa-bars");
+    menuToggle.querySelector("i").classList.toggle("fa-xmark");
+  });
+}

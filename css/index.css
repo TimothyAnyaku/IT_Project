@@ -6,25 +6,95 @@ main section {
   gap: 20px;
 }
 
-/* HERO */
+/* ============================
+   HERO SECTION (Responsive)
+   ============================ */
 #home-intro {
-  background: url('../assets/moderna-bg-image.jpg') no-repeat center/cover;
-  background-color: rgba(0,0,0,0.55);
-  background-blend-mode: darken;
-  color: white;
-  height: 100vh;
-  text-align: center;
+  position: relative;
+  width: 100%;
+  min-height: 100vh; /* base height */
+  padding: 100px 20px; /* space for header overlay */
+  display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  background-image: url("../assets/moderna-bg-image.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  color: white;
+  background-color: rgba(0, 0, 0, 0.55);
+  background-blend-mode: darken;
+  transition:
+  background-position 0.4s ease, 
+  background-size 0.4s ease, 
+  min-height 0.3s ease;
 }
-.home-intro h1 { font-size: 55px; font-weight: 500; }
-.home-intro p { font-size: 18px; max-width: 600px; }
-.home-intro .btn {
+
+#home-intro h1 {
+  font-size: 55px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+#home-intro p {
+  font-size: 18px;
+  max-width: 600px;
+  margin: 0 auto 20px;
+}
+
+#home-intro .btn {
+  background-color: white;
+  color: black;
   margin-top: 20px;
-  color: black; background: #fff;
   padding: 15px 30px;
   border-radius: 4px;
+  font-weight: 500;
 }
-.home-intro .btn:hover { background: black; color: white; }
+#home-intro .btn:hover {
+  background-color: black;
+  color: white;
+}
+
+/* Tablet view (600‑899 px) */
+@media (max-width: 899px) {
+  #home-intro {
+    min-height: 70vh;
+    background-position: center top;
+    background-size: cover;
+    padding: 80px 20px;
+  }
+  #home-intro h1 {
+    font-size: 42px;
+  }
+  #home-intro p {
+    font-size: 16px;
+    width: 85%;
+  }
+}
+
+/* Mobile view (≤ 599 px) */
+@media (max-width: 599px) {
+  #home-intro {
+    min-height: 65vh;
+    padding: 60px 20px;
+    background-position: center center;
+  }
+  #home-intro h1 {
+    font-size: 32px;
+  }
+  #home-intro p {
+    font-size: 15px;
+    width: 90%;
+  }
+  #home-intro .btn {
+    padding: 12px 25px;
+    font-size: 14px;
+  }
+}
 
 /* FEATURED */
 .product-intro { text-align: center; padding: 100px 20px; background: white; }
@@ -77,3 +147,40 @@ main section {
 /* ============================
    HEADER
    ============================ */
+
+   /* ============================
+   DARK MODE – INDEX PAGE
+   ============================ */
+
+body.dark main,
+body.dark .background,
+body.dark .home-intro,
+body.dark .product-intro,
+body.dark .shop-intro {
+  background: #121212;
+  color: #f8f8f8;
+}
+
+body.dark .product-item {
+  background: #1e1e1e;
+  color: #f8f8f8;
+}
+
+body.dark .product-intro h3,
+body.dark .shop-intro h3 {
+  color: #ffffff;
+}
+
+body.dark .product-item h4 {
+  color: #bbb;
+}
+
+body.dark .link {
+  background-color: #6c6c6c;
+  color: #ffffff;
+}
+
+body.dark .btn {
+  background: #1ec7c7;
+  color: black;
+}

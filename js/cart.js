@@ -22,18 +22,23 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Add to Wishlist
-  document.querySelectorAll(".add-to-wishlist").forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      const item = e.target.closest(".product-item");
-      const name = item.querySelector("h3").textContent;
-      if (!wishlist.find((p) => p === name)) {
-        wishlist.push(name);
-        localStorage.setItem("wishlist", JSON.stringify(wishlist));
-        alert(`${name} added to wishlist.`);
-      } else {
-        alert(`${name} is already in your wishlist.`);
-      }
-    });
+  // ADD TO WISHLIST  (update)
+document.querySelectorAll(".add-to-wishlist").forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    const item = e.target.closest(".product-item");
+    const name = item.querySelector("h3").textContent;
+    const img = item.querySelector("img").src;
+
+    const wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+    // Prevent duplicates by name
+    if (!wishlist.find((p) => p.name === name)) {
+      wishlist.push({ name, img });
+      localStorage.setItem("wishlist", JSON.stringify(wishlist));
+      alert(`${name} added to wishlist!`);
+    } else {
+      alert(`${name} is already in your wishlist.`);
+    }
   });
+});
 });

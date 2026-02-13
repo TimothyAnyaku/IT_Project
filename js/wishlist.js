@@ -1,4 +1,4 @@
-// wishlist.js — render and manage wishlist
+// wishlist.js — render and manage wishlist with images
 document.addEventListener("DOMContentLoaded", () => {
   const wishlistGrid = document.getElementById("wishlist-grid");
   const emptyMsg = document.getElementById("empty-message");
@@ -14,11 +14,11 @@ document.addEventListener("DOMContentLoaded", () => {
       emptyMsg.textContent = "";
     }
 
-    wishlist.forEach((name, index) => {
+    wishlist.forEach((product, index) => {
       wishlistGrid.innerHTML += `
         <div class="wishlist-item" data-index="${index}">
-          <img src="./assets/default.png" alt="${name}" />
-          <h3>${name}</h3>
+          <img src="${product.img}" alt="${product.name}" />
+          <h3>${product.name}</h3>
           <div class="wishlist-actions">
             <button class="add-cart">Add to Cart</button>
             <button class="remove">Remove</button>
@@ -40,11 +40,16 @@ document.addEventListener("DOMContentLoaded", () => {
     // Add to Cart
     document.querySelectorAll(".add-cart").forEach((btn) => {
       btn.addEventListener("click", (e) => {
-        const name = e.target.closest(".wishlist-item").querySelector("h3").textContent;
-        const product = { id: Date.now(), name, price: "$—", img: "./assets/default.png" };
-        cart.push(product);
+        const i = e.target.closest(".wishlist-item").dataset.index;
+        const product = wishlist[i];
+        cart.push({
+          id: Date.now(),
+          name: product.name,
+          img: product.img,
+          price: "$—"
+        });
         localStorage.setItem("cart", JSON.stringify(cart));
-        alert(`${name} added to cart!`);
+        alert(`${product.name} added to cart!`);
       });
     });
   };

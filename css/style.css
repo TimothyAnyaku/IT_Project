@@ -4,21 +4,39 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: "Segoe UI", sans-serif;
   box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+html, body {
+  height: 100%;
 }
 
 body {
   background: #fff;
   color: #111;
   line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-img { max-width: 100%; display: block; }
-a { text-decoration: none; color: inherit; }
+main {
+  flex: 1;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
 /* ============================
-   HEADER
+   HEADER + NAVBAR
    ============================ */
 header {
   position: fixed;
@@ -28,9 +46,10 @@ header {
   background: rgb(234, 234, 234);
   display: flex;
   align-items: center;
-  z-index: 10;
+  z-index: 100;
   border-bottom: 1px solid #ddd;
 }
+
 header .wrap {
   width: 90%;
   max-width: 1200px;
@@ -39,35 +58,46 @@ header .wrap {
   justify-content: space-between;
   align-items: center;
 }
+
+/* LOGO */
 .logo {
   display: flex;
   align-items: center;
   gap: 10px;
 }
+
 .logo h1 {
   font-family: "Times New Roman";
   background: linear-gradient(to right, #4f4f4f, #999, #4f4f4f);
   border-radius: 50%;
-  width: 40px; height: 40px;
+  width: 40px;
+  height: 40px;
   color: #000;
-  display: flex; justify-content: center; align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 22px;
 }
+
+/* NAV DESKTOP */
 nav ul {
   display: flex;
   gap: 25px;
+  align-items: center;
   list-style: none;
 }
+
 nav ul li a,
 nav ul li button {
   font-size: 14px;
+  background: none;
   border: none;
-  background: transparent;
   color: black;
   cursor: pointer;
   padding: 8px 10px;
   border-radius: 5px;
 }
+
 nav ul li a:hover,
 nav ul li a.active,
 nav ul li button:hover {
@@ -76,17 +106,77 @@ nav ul li button:hover {
   transition: 0.3s;
 }
 
-/* Responsive Header */
-@media (max-width: 700px) {
-  header .wrap {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px 0;
+/* ============================
+   HAMBURGER MENU TOGGLE
+   ============================ */
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* --- Mobile nav styles --- */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    color: black;
   }
+
+  body.dark .menu-toggle {
+    color: white;
+  }
+
+  header .wrap {
+    flex-wrap: wrap;
+  }
+
+  nav {
+    position: relative;
+    width: 100%;
+  }
+
   nav ul {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
     flex-direction: column;
-    gap: 10px;
     align-items: center;
+    background: rgb(234, 234, 234);
+    gap: 10px;
+    padding: 15px 0;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.4s ease;
+  }
+
+  nav ul.open {
+    max-height: 500px;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Dark-mode background for mobile dropdown */
+  body.dark nav ul {
+    background: #1d1d1d;
+  }
+
+  /* Animated fade-in of each nav item */
+  nav ul.open li {
+    animation: fadeIn 0.3s ease forwards;
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
 
@@ -98,7 +188,9 @@ footer {
   color: #fff;
   text-align: center;
   padding: 60px 20px;
+  flex-shrink: 0;
 }
+
 .footer-content {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -106,45 +198,57 @@ footer {
   max-width: 1200px;
   margin: 0 auto;
 }
+
 .footer-section {
   text-align: left;
 }
-.footer-section ul li {
-  list-style: none;
-  padding: 0;
-}
-.footer-section ul li a{
-  text-decoration: none;
-  color: #ccc;
-  font-size: 14px;
-  line-height: 2;
-}
+
 .footer-section h3 {
   margin-bottom: 15px;
   font-weight: 500;
 }
+
 .footer-section p,
 .footer-section a {
   font-size: 14px;
   color: #ccc;
   line-height: 1.7;
 }
+
+.footer-section ul li {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li a {
+  text-decoration: none;
+  color: #ccc;
+  font-size: 14px;
+  line-height: 2;
+}
+
 .footer-section a:hover {
   color: rgb(58, 238, 238);
   text-decoration: underline;
 }
+
 .social-media a {
   color: rgb(58, 238, 238);
   margin-right: 15px;
   font-size: 1.2rem;
+  transition: color 0.2s;
 }
-.social-media a:hover { color: white; }
 
-/* Responsive Footer */
+.social-media a:hover {
+  color: white;
+}
+
+/* Responsive Footer Layout */
 @media (max-width: 700px) {
   footer {
     padding: 40px 15px;
   }
+
   .footer-content {
     grid-template-columns: 1fr;
     text-align: center;
@@ -154,11 +258,51 @@ footer {
 /* ============================
    DARK MODE
    ============================ */
-body.dark { background: #121212; color: #f8f8f8; }
-body.dark header { background: #1e1e1e; }
-body.dark footer { background: #0f0f0f; }
-body.dark a { color: #1ec7c7; }
-body.dark nav ul li a:hover { background: #1ec7c7; color: black; }
+body.dark {
+  background-color: #121212;
+  color: #f8f8f8;
+}
 
-/* Utilities */
-.btn, .link, button, input[type=submit] { cursor: pointer; }
+body.dark header {
+  background-color: #1e1e1e;
+}
+
+body.dark nav ul li a {
+  color: #f8f8f8;
+}
+
+body.dark nav ul li a:hover {
+  background: #1ec7c7;
+  color: black;
+}
+
+body.dark footer {
+  background-color: #0f0f0f;
+}
+
+body.dark a {
+  color: #1ec7c7;
+}
+
+body.dark main,
+body.dark section {
+  background-color: #121212;
+  color: #f8f8f8;
+}
+
+/* ============================
+   UTILITIES / GLOBAL ELEMENTS
+   ============================ */
+.btn,
+.link,
+button,
+input[type="submit"] {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover,
+button:hover,
+input[type="submit"]:hover {
+  opacity: 0.85;
+}
