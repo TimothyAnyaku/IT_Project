@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Moderna | Thank You</title>
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/thankyou.css" />
+</head>
+
+<body>
+  <header>
+    <div class="wrap">
+      <div class="logo"><h1>M</h1><h3>Moderna</h3></div>
+
+      <div class="menu-toggle" id="menu-toggle">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+
+      <nav class="navigation" id="nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Shop</a></li>
+          <li><a href="wishlist.html">Wishlist</a></li>
+          <li><a href="checkout.html">Cart</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="auth.html" class="login">Login</a></li>
+          <li><button id="dark-mode-toggle"><i class="fa-solid fa-moon"></i></button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="thankyou">
+      <div class="thankyou-box">
+        <div class="icon-circle">
+          <i class="fa-solid fa-check"></i>
+        </div>
+        <h2>Thank You for Your Purchase!</h2>
+        <p>Your order has been successfully placed.</p>
+        <p>You’ll be redirected to the homepage shortly...</p>
+        <a href="index.html" class="btn-home">Back to Home</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 MODERNA | Premium Fashion</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Automatic redirect after 5 seconds
+    setTimeout(() => {
+      window.location.href = "index.html";
+    }, 5000);
+  </script>
+</body>
+</html>

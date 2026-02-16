@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -14,9 +14,9 @@
 <body>
   <header>
   <div class="wrap">
-    <div class="logo"><h1>M</h1><h3>Moderna</h3></div>
+    <div class="logo"><h1>M</h1><h3>Moderna</h3></div> -->
     <!-- MENU ICON (mobile) -->
-    <div class="menu-toggle" id="menu-toggle">
+    <!-- <div class="menu-toggle" id="menu-toggle">
       <i class="fa-solid fa-bars"></i>
     </div>
 
@@ -80,6 +80,65 @@
         </div>
       </div>
     </div> 
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/checkout.js"></script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Moderna | Checkout</title>
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/checkout.css" />
+</head>
+
+<body>
+  <header>
+    <div class="wrap">
+      <div class="logo"><h1>M</h1><h3>Moderna</h3></div>
+
+      <div class="menu-toggle" id="menu-toggle">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+
+      <nav class="navigation" id="nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Shop</a></li>
+          <li><a href="wishlist.html">Wishlist</a></li>
+          <li><a href="checkout.html" class="active">Cart</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="auth.html" class="login">Login</a></li>
+          <li><button id="dark-mode-toggle"><i class="fa-solid fa-moon"></i></button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="checkout-section">
+      <h2>Your Cart</h2>
+      <div id="cart-list" class="cart-list"></div>
+
+      <div class="checkout-summary" id="checkout-summary">
+        <p><strong>Total:</strong> <span id="total-price">$0</span></p>
+        <button id="checkout-btn" class="checkout-btn">Proceed to Checkout</button>
+        <button id="clear" class="clear-cart">Clear Cart</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 MODERNA | Premium Fashion</p>
   </footer>
 
   <script src="js/main.js"></script>

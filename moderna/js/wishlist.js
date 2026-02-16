@@ -1,4 +1,4 @@
-// wishlist.js — render and manage wishlist with images
+// wishlist.js — render and manage wishlist with image + price
 document.addEventListener("DOMContentLoaded", () => {
   const wishlistGrid = document.getElementById("wishlist-grid");
   const emptyMsg = document.getElementById("empty-message");
@@ -10,15 +10,17 @@ document.addEventListener("DOMContentLoaded", () => {
     if (wishlist.length === 0) {
       emptyMsg.textContent = "Your wishlist is empty.";
       return;
-    } else {
-      emptyMsg.textContent = "";
-    }
+    } else emptyMsg.textContent = "";
 
     wishlist.forEach((product, index) => {
+      const imgSrc = product.img && product.img !== "" ? product.img : "./assets/default.png";
+      const price = product.price ? product.price : "$—";
+
       wishlistGrid.innerHTML += `
         <div class="wishlist-item" data-index="${index}">
-          <img src="${product.img}" alt="${product.name}" />
+          <img src="${imgSrc}" alt="${product.name}" />
           <h3>${product.name}</h3>
+          <p class="wishlist-price">${price}</p>
           <div class="wishlist-actions">
             <button class="add-cart">Add to Cart</button>
             <button class="remove">Remove</button>
@@ -37,17 +39,18 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
-    // Add to Cart
+    // Add to cart
     document.querySelectorAll(".add-cart").forEach((btn) => {
       btn.addEventListener("click", (e) => {
         const i = e.target.closest(".wishlist-item").dataset.index;
         const product = wishlist[i];
-        cart.push({
+        const newItem = {
           id: Date.now(),
           name: product.name,
-          img: product.img,
-          price: "$—"
-        });
+          img: product.img ? product.img : "./assets/default.png",
+          price: product.price ? product.price : "$0"
+        };
+        cart.push(newItem);
         localStorage.setItem("cart", JSON.stringify(cart));
         alert(`${product.name} added to cart!`);
       });

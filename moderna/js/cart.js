@@ -22,18 +22,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // ADD TO WISHLIST  (update)
+// ADD TO WISHLIST  (fixed version – include price)
 document.querySelectorAll(".add-to-wishlist").forEach((btn) => {
   btn.addEventListener("click", (e) => {
     const item = e.target.closest(".product-item");
     const name = item.querySelector("h3").textContent;
     const img = item.querySelector("img").src;
+    const price = item.querySelector("p").textContent; // capture product price
 
     const wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
 
-    // Prevent duplicates by name
+    // Prevent duplicates
     if (!wishlist.find((p) => p.name === name)) {
-      wishlist.push({ name, img });
+      wishlist.push({ name, img, price });
       localStorage.setItem("wishlist", JSON.stringify(wishlist));
       alert(`${name} added to wishlist!`);
     } else {
